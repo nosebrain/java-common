@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>common</name>
-	<url>http://maven.apache.org</url>
+	<url>TODO</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +20,20 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.0.1</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -42,13 +56,8 @@
 				<version>2.3.1</version>
 				<configuration>
 					<source>1.6</source>
-					<target>1.6</target>
+					<target>1.5</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.0</version>
 			</plugin>
 		</plugins>
 	</build>
