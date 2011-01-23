@@ -64,7 +64,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory> {
 
 	@Override
 	public boolean isSingleton() {
-		return false;
+		return true;
 	}
 
 }
