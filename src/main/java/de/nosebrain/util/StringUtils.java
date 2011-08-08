@@ -28,9 +28,8 @@ public abstract class StringUtils {
 	}
 	
 	/**
-	 * 
-	 * @param str
-	 * @return
+	 * @param str the string to normalize
+	 * @return the normalized string
 	 */
 	public static String normalizeString(final String str) {
 		if (str != null) {
