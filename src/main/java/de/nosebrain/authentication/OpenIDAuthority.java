@@ -6,7 +6,9 @@ package de.nosebrain.authentication;
  *
  */
 public class OpenIDAuthority implements Authority {
-
+	private static final long serialVersionUID = -8548694743451044732L;
+	
+	
 	private String identity;
 	
 	/**
