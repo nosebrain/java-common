@@ -7,6 +7,8 @@ package de.nosebrain.authentication;
  *
  */
 public class UsernamePasswordAuthority implements Authority {
+	private static final long serialVersionUID = 4019105460510224953L;
+	
 	
 	private String password;
 
