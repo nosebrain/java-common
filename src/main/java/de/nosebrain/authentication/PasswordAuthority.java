@@ -4,9 +4,8 @@ package de.nosebrain.authentication;
 /**
  * 
  * @author nosebrain
- *
  */
-public class UsernamePasswordAuthority implements Authority {
+public class PasswordAuthority implements Authority {
 	private static final long serialVersionUID = 4019105460510224953L;
 	
 	
@@ -28,6 +27,6 @@ public class UsernamePasswordAuthority implements Authority {
 
 	@Override
 	public AuthMethod getMethod() {
-		return AuthMethod.USERNAME_PASSWORD;
+		return DefaultAuthMethod.PASSWORD;
 	}
 }
