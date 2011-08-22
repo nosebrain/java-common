@@ -11,6 +11,8 @@ import java.security.NoSuchAlgorithmException;
  */
 public abstract class StringUtils {
 	
+	private static final String DEFAULT_CHARSET = "UTF-8";
+
 	/**
 	 * md5 of the string
 	 * @param str the string to hash
@@ -19,7 +21,7 @@ public abstract class StringUtils {
 	public static String md5(final String str) {
 		try {
 			final MessageDigest md = MessageDigest.getInstance("MD5");
-			return toHexString(md.digest(str.getBytes("UTF-8")));
+			return toHexString(md.digest(str.getBytes(DEFAULT_CHARSET)));
 		} catch (final NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
 		} catch (final UnsupportedEncodingException e) {
