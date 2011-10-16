@@ -18,7 +18,6 @@ import javax.mail.internet.MimeMessage;
  */
 public class Mailer {
 	
-	private Transport transport;
 	private Session session;
 	
 	private Properties properties;
@@ -27,8 +26,9 @@ public class Mailer {
 	
 	/**
 	 * @return a new message
+	 * @throws MessagingException if reload fails
 	 */
-	public MimeMessage createMessage() {
+	public MimeMessage createMessage() throws MessagingException {
 		return new MimeMessage(this.session);
 	}
 	
@@ -55,7 +55,7 @@ public class Mailer {
 	 */
 	public void sendMessage(final Message message, final Address... addresses) throws MessagingException {
 		message.addRecipients(RecipientType.TO, addresses);
-		this.transport.sendMessage(message, addresses);
+		Transport.send(message);
 	}
 	
 	/**
@@ -73,8 +73,6 @@ public class Mailer {
 		} else {
 			this.session = Session.getDefaultInstance(this.properties);
 		}
-		this.transport = session.getTransport("smtp");
-        this.transport.connect();
 	}
 	
 	/**
