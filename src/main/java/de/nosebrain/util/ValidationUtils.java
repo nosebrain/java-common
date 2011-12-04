@@ -32,4 +32,13 @@ public final class ValidationUtils {
 	public static boolean present(final Collection<?> collection) {
 		return collection != null && !collection.isEmpty();
 	}
+
+	/**
+	 * 
+	 * @param array the array to check
+	 * @return <code>true</code> iff array is not null and length is greater than 0
+	 */
+	public static boolean present(final Object[] array) {
+		return array != null && array.length > 0;
+	}
 }
