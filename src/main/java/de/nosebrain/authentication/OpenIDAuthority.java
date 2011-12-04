@@ -6,21 +6,21 @@ package de.nosebrain.authentication;
  */
 public class OpenIDAuthority implements Authority {
 	private static final long serialVersionUID = -8548694743451044732L;
-	
-	
+
+
 	private String identity;
-	
+
 	/**
 	 * @return the identity
 	 */
 	public String getIdentity() {
-		return identity;
+		return this.identity;
 	}
 
 	/**
 	 * @param identity the identity to set
 	 */
-	public void setIdentity(String identity) {
+	public void setIdentity(final String identity) {
 		this.identity = identity;
 	}
 
@@ -36,7 +36,7 @@ public class OpenIDAuthority implements Authority {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result	+ ((identity == null) ? 0 : identity.hashCode());
+		result = prime * result	+ (this.identity == null ? 0 : this.identity.hashCode());
 		return result;
 	}
 
@@ -44,7 +44,7 @@ public class OpenIDAuthority implements Authority {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
@@ -54,12 +54,12 @@ public class OpenIDAuthority implements Authority {
 		if (!(obj instanceof OpenIDAuthority)) {
 			return false;
 		}
-		OpenIDAuthority other = (OpenIDAuthority) obj;
-		if (identity == null) {
+		final OpenIDAuthority other = (OpenIDAuthority) obj;
+		if (this.identity == null) {
 			if (other.identity != null) {
 				return false;
 			}
-		} else if (!identity.equals(other.identity)) {
+		} else if (!this.identity.equals(other.identity)) {
 			return false;
 		}
 		return true;
