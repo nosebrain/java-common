@@ -17,21 +17,20 @@ import javax.mail.internet.MimeMessage;
  * @author nosebrain
  */
 public class Mailer {
-	
+
 	private Session session;
-	
+
 	private Properties properties;
 	private String username;
 	private String password;
-	
+
 	/**
 	 * @return a new message
-	 * @throws MessagingException if reload fails
 	 */
-	public MimeMessage createMessage() throws MessagingException {
+	public MimeMessage createMessage() {
 		return new MimeMessage(this.session);
 	}
-	
+
 	/**
 	 * {@link #sendMessage(Message, Address...)}
 	 * 
@@ -47,7 +46,7 @@ public class Mailer {
 		}
 		this.sendMessage(message, addressesA);
 	}
-	
+
 	/**
 	 * @param message the message to send
 	 * @param addresses the recipients
@@ -57,12 +56,11 @@ public class Mailer {
 		message.addRecipients(RecipientType.TO, addresses);
 		Transport.send(message);
 	}
-	
+
 	/**
 	 * inits the transport and session
-	 * @throws MessagingException if transport
 	 */
-	public void init() throws MessagingException {
+	public void init() {
 		if (this.password != null && this.username != null) {
 			this.session = Session.getDefaultInstance(this.properties, new Authenticator() {
 				@Override
@@ -74,25 +72,25 @@ public class Mailer {
 			this.session = Session.getDefaultInstance(this.properties);
 		}
 	}
-	
+
 	/**
 	 * @param username the username to set
 	 */
-	public void setUsername(String username) {
+	public void setUsername(final String username) {
 		this.username = username;
 	}
-	
+
 	/**
 	 * @param password the password to set
 	 */
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 
 	/**
 	 * @param properties the properties to set
 	 */
-	public void setProperties(Properties properties) {
+	public void setProperties(final Properties properties) {
 		this.properties = properties;
 	}
 }
