@@ -26,7 +26,7 @@ public class OpenIDAuthority implements Authority {
 
 	@Override
 	public AuthMethod getMethod() {
-		return DefaultAuthMethod.OPEN_ID;
+		return AuthMethod.OPEN_ID;
 	}
 
 	/* (non-Javadoc)
