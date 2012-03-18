@@ -23,12 +23,12 @@ import org.springframework.security.web.context.SecurityContextRepository;
  */
 public class UsernameContextRepository implements SecurityContextRepository {
 	private static final String ATTRIBUTE_LOGIN_USER_NAME = "LOGIN_USER_NAME";
-	
+
 	/**
 	 * Delivers details for each given user.
 	 */
 	private UserDetailsService service;
-	private final AuthenticationTrustResolver authenticationTrustResolver = new AuthenticationTrustResolverImpl();
+	private AuthenticationTrustResolver authenticationTrustResolver = new AuthenticationTrustResolverImpl();
 
 	/**
 	 * Checks for a user name in the session. If one is found, the corresponding
@@ -40,7 +40,7 @@ public class UsernameContextRepository implements SecurityContextRepository {
 	public SecurityContext loadContext(final HttpRequestResponseHolder requestResponseHolder) {
 		final HttpServletRequest request = requestResponseHolder.getRequest();
 		final SecurityContextImpl securityContext = new SecurityContextImpl();
-		
+
 		final String username = getLoginUser(request);
 		if (present(username)) {
 			/*
@@ -50,11 +50,11 @@ public class UsernameContextRepository implements SecurityContextRepository {
 			final Authentication authentication = new SessionAuthenticationToken(user, user.getAuthorities());
 			securityContext.setAuthentication(authentication);
 		}
-		
+
 		return securityContext;
 	}
-	
-	
+
+
 	/**
 	 * Stores the user name in the session.
 	 * 
@@ -66,7 +66,7 @@ public class UsernameContextRepository implements SecurityContextRepository {
 	}
 
 	/**
-	 * The name of the logged in user is stored in the session. This method 
+	 * The name of the logged in user is stored in the session. This method
 	 * extracts the name from the session.
 	 * 
 	 * @param request
@@ -77,19 +77,19 @@ public class UsernameContextRepository implements SecurityContextRepository {
 		if (session == null) {
 			return null;
 		}
-		
+
 		return (String) session.getAttribute(ATTRIBUTE_LOGIN_USER_NAME);
 	}
-	
+
 	private void setLoginUser(final HttpServletRequest request, final Authentication authentication) {
 		if (this.authenticationTrustResolver.isAnonymous(authentication)) {
-            return;
-        }
-		
+			return;
+		}
+
 		/*
-		 * If an authentication is present, we store the user name in the 
-		 * session. Note that we /always/ store it - also when it already 
-		 * contained in the session (i.e., we don't check for 
+		 * If an authentication is present, we store the user name in the
+		 * session. Note that we /always/ store it - also when it already
+		 * contained in the session (i.e., we don't check for
 		 * !this.containsContext(request)). Thus, the session should time out
 		 * after XX minutes of /inactivity/.
 		 */
@@ -100,9 +100,9 @@ public class UsernameContextRepository implements SecurityContextRepository {
 			session.setAttribute(ATTRIBUTE_LOGIN_USER_NAME, loginUsername);
 		}
 	}
-	
+
 	@Override
-	public boolean containsContext(HttpServletRequest request) {
+	public boolean containsContext(final HttpServletRequest request) {
 		return getLoginUser(request) != null;
 	}
 
@@ -111,5 +111,13 @@ public class UsernameContextRepository implements SecurityContextRepository {
 	 */
 	public void setService(final UserDetailsService service) {
 		this.service = service;
+	}
+
+	/**
+	 * @param authenticationTrustResolver the authenticationTrustResolver to set
+	 */
+	public void setAuthenticationTrustResolver(
+			final AuthenticationTrustResolver authenticationTrustResolver) {
+		this.authenticationTrustResolver = authenticationTrustResolver;
 	}
 }

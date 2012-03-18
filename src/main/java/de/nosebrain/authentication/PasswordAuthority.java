@@ -27,6 +27,6 @@ public class PasswordAuthority implements Authority {
 
 	@Override
 	public AuthMethod getMethod() {
-		return DefaultAuthMethod.PASSWORD;
+		return AuthMethod.PASSWORD;
 	}
 }
