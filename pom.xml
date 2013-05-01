@@ -9,8 +9,8 @@
 	<name>common</name>
 	
 	<scm>
-        <connection>scm:hg:file://${basedir}</connection>
-        <developerConnection>scm:hg:file://${basedir}</developerConnection>
+        <connection>scm:ssh://hg@bitbucket.org/nosebrain/java-common</connection>
+        <developerConnection>scm:hg:ssh://hg@bitbucket.org/nosebrain/java-common</developerConnection>
     </scm>
 
 	<properties>
