@@ -1,4 +1,6 @@
-
+.settings
+.project
+.classpath
 syntax: regexp
 ^target$
 syntax: regexp
