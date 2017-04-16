@@ -22,7 +22,7 @@
 		<repository>
 			<id>artifactory.nosebrain.de</id>
 			<name>nosebrain.de-releases</name>
-			<url>http://10.0.1.152:8081/artifactory/libs-release-local</url>
+			<url>https://artifactory.nosebrain.de/artifactory/libs-release-local</url>
 		</repository>
 	</distributionManagement>
 
