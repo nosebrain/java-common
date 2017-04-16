@@ -7,3 +7,5 @@ syntax: regexp
 ^pom\.xml\.releaseBackup$
 syntax: regexp
 ^release\.properties$
+
+common.iml
