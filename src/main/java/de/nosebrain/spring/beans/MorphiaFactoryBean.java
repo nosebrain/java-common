@@ -2,7 +2,7 @@ package de.nosebrain.spring.beans;
 
 import org.springframework.beans.factory.FactoryBean;
 
-import com.google.code.morphia.Morphia;
+import org.mongodb.morphia.Morphia;
 
 /**
  * 
