@@ -3,14 +3,14 @@
 
 	<groupId>de.nosebrain</groupId>
 	<artifactId>common</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<packaging>jar</packaging>
 	<name>common</name>
 
 	<scm>
 		<connection>scm:ssh://hg@bitbucket.org/nosebrain/java-common</connection>
 		<developerConnection>scm:hg:ssh://hg@bitbucket.org/nosebrain/java-common</developerConnection>
-		<tag>HEAD</tag>
+		<tag>0.0.3</tag>
 	</scm>
 
 	<properties>
