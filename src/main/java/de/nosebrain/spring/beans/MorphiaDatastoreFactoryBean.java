@@ -1,26 +1,25 @@
 package de.nosebrain.spring.beans;
 
+import com.mongodb.MongoClient;
 import org.springframework.beans.factory.FactoryBean;
 
-import com.google.code.morphia.Datastore;
-import com.google.code.morphia.Morphia;
-import com.mongodb.Mongo;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
 
 /**
  * 
  * @author nosebrain
- *
  */
 public class MorphiaDatastoreFactoryBean implements FactoryBean<Datastore>{
 
-	private Mongo mongo;
+	private MongoClient mongoClient;
 	private Morphia morphia;
 
 	private String databaseName;
 
 	@Override
 	public Datastore getObject() throws Exception {
-		return this.morphia.createDatastore(this.mongo, this.databaseName);
+		return this.morphia.createDatastore(this.mongoClient, this.databaseName);
 	}
 
 	@Override
@@ -34,10 +33,10 @@ public class MorphiaDatastoreFactoryBean implements FactoryBean<Datastore>{
 	}
 
 	/**
-	 * @param mongo the mongo to set
+	 * @param mongoClient the mongoClient to set
 	 */
-	public void setMongo(final Mongo mongo) {
-		this.mongo = mongo;
+	public void setMongoClient(final MongoClient mongoClient) {
+		this.mongoClient = mongoClient;
 	}
 
 	/**
