@@ -8,8 +8,8 @@
 	<name>common</name>
 
 	<scm>
-		<connection>scm:ssh://hg@bitbucket.org/nosebrain/java-common</connection>
-		<developerConnection>scm:hg:ssh://hg@bitbucket.org/nosebrain/java-common</developerConnection>
+		<connection>scm:git:ssh://git@github.com:nosebrain/java-common.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:nosebrain/java-common.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
